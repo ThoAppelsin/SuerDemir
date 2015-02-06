@@ -90,9 +90,10 @@
 
 
 
-% ========================================================================
+% =========================================================
 % Enumeration
-\usepackage{enumitem}
+\usepackage[inline]{enumitem}
+\usepackage{tabto}
 
 \newenvironment{hItemize}[1]
 {
@@ -106,9 +107,7 @@
 		itemsep = 0pt
 	]
 }
-{
-	\end{enumerate}
-}
+{\end{enumerate}}
 
 \newenvironment{hItemizeBullet}
 {\begin{hItemize}{$\bullet$}}
@@ -125,6 +124,66 @@
 \newenvironment{hEnumerateAlpha}
 {\begin{hItemize}{\alph*)}}
 {\end{hItemize}}
+
+% Multi-column enumeration
+% Items listed side-by-side
+\newenvironment{hItemizeMulticolumn}[2]
+{
+	\parindent = 0em
+	\par
+	\NumTabs{#1}
+	\begin{enumerate*}
+	[
+		itemjoin = \tab,
+		label = #2
+	]
+}
+{\end{enumerate*}}
+
+\newenvironment{hItemizeBulletMulticolumn}[1]
+{\begin{hItemizeMulticolumn}{#1}{$\bullet$}}
+{\end{hItemizeMulticolumn}}
+
+\newenvironment{hEnumerateRomanMulticolumn}[1]
+{\begin{hItemizeMulticolumn}{#1}{\roman*.}}
+{\end{hItemizeMulticolumn}}
+
+\newenvironment{hEnumerateArabicMulticolumn}[1]
+{\begin{hItemizeMulticolumn}{#1}{\arabic*.}}
+{\end{hItemizeMulticolumn}}
+
+\newenvironment{hEnumerateAlphaMulticolumn}[1]
+{\begin{hItemizeMulticolumn}{#1}{\alph*)}}
+{\end{hItemizeMulticolumn}}
+
+\newenvironment{hItemizeMulticolumn*}[2]
+{
+	\parindent = 0em
+	\par
+	\TabPositions{#1}
+	\begin{enumerate*}
+	[
+		itemjoin = \tab,
+		label = #2
+	]
+}
+{\end{enumerate*}}
+
+\newenvironment{hItemizeBulletMulticolumn*}[1]
+{\begin{hItemizeMulticolumn*}{#1}{$\bullet$}}
+{\end{hItemizeMulticolumn*}}
+
+\newenvironment{hEnumerateRomanMulticolumn*}[1]
+{\begin{hItemizeMulticolumn*}{#1}{\roman*.}}
+{\end{hItemizeMulticolumn*}}
+
+\newenvironment{hEnumerateArabicMulticolumn*}[1]
+{\begin{hItemizeMulticolumn*}{#1}{\arabic*.}}
+{\end{hItemizeMulticolumn*}}
+
+\newenvironment{hEnumerateAlphaMulticolumn*}[1]
+{\begin{hItemizeMulticolumn*}{#1}{\alph*)}}
+{\end{hItemizeMulticolumn*}}
 
 
 % ========================================================================
