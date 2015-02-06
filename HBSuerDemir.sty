@@ -95,24 +95,36 @@
 \usepackage{enumitem}
 
 \newenvironment{hItemize}[1]
-{\begin{enumerate}[label=#1.,leftmargin=*,topsep=-10pt,partopsep=0pt,parsep=0pt,itemsep=0pt]}
-{\end{enumerate}}
+{
+	\begin{enumerate}
+	[
+		label = #1,
+		leftmargin = *,
+		topsep = -10pt,
+		partopsep = 0pt,
+		parsep = 0pt,
+		itemsep = 0pt
+	]
+}
+{
+	\end{enumerate}
+}
 
 \newenvironment{hItemizeBullet}
-{\begin{enumerate}[label=$\bullet$,leftmargin=*,topsep=-10pt,partopsep=0pt,parsep=0pt,itemsep=0pt]}
-{\end{enumerate}}
+{\begin{hItemize}{$\bullet$}}
+{\end{hItemize}}
 
 \newenvironment{hEnumerateRoman}
-{\begin{enumerate}[label=\roman*.,leftmargin=*,topsep=-10pt,partopsep=0pt,parsep=0pt,itemsep=0pt]}
-{\end{enumerate}}
+{\begin{hItemize}{\roman*.}}
+{\end{hItemize}}
 
 \newenvironment{hEnumerateArabic}
-{\begin{enumerate}[label=\arabic*.,leftmargin=*,topsep=-10pt,partopsep=0pt,parsep=0pt,itemsep=0pt]}
-{\end{enumerate}}
+{\begin{hItemize}{\arabic*.}}
+{\end{hItemize}}
 
 \newenvironment{hEnumerateAlpha}
-{\begin{enumerate}[label=\alph*) ,leftmargin=*,topsep=-10pt,partopsep=0pt,parsep=0pt,itemsep=0pt]}
-{\end{enumerate}}
+{\begin{hItemize}{\alph*)}}
+{\end{hItemize}}
 
 
 % ========================================================================
